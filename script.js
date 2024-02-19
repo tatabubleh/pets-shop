@@ -1,3 +1,6 @@
+const petsTemplate = document.querySelector('#item-template');
+const nothingFound = document.querySelector('#nothing-found');
+const shopItems = document.querySelector('#shop-items');
 const items = [
   {
     title: "Игрушка мячик",
@@ -84,3 +87,34 @@ const items = [
     img: "./img/12.jpeg",
   },
 ];
+
+function makePetsTemplate(item) {
+  const {title, description, tags, price, img} = item;
+  
+  const newPets = petsTemplate.content.cloneNode(true);
+  newPets.querySelector('h1').textContent = title;
+  newPets.querySelector('p').textContent = description;
+  newPets.querySelector('img').src = img;
+  newPets.querySelector('.price').textContent = price;
+  
+  const tagsHolder = newPets.querySelector('.tags');
+  
+  tags.forEach((tag) => {
+    const createNewSpan = document.createElement('span');
+    createNewSpan.classList.add('tag');
+    createNewSpan.textContent = tag;
+    tagsHolder.append(createNewSpan);
+  });
+  
+  return newPets;
+}
+
+
+function renderItems (items) {
+  
+  items.forEach((item) => {
+    const newItem = makePetsTemplate(item);
+    shopItems.append(newItem);
+  });
+}
+renderItems(items);
