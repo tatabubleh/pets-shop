@@ -87,9 +87,6 @@ const items = [
     img: "./img/12.jpeg",
   },
 ];
-//- Название [товара](https://github.com/CodegirlSchool/pets-shop/blob/main/script.js#L2) (`title`) помести в `h1`,
-//описание (`description`) — в `p`, картинку (`img`) — в одноименный тег, 
-//цену (`price`) — в `span` с классом `"price"` и массив тегов `tags` — в `div class="tags"`
 
 function makePetsTemplate(item) {
   const {title, description, tags, price, img} = item;
